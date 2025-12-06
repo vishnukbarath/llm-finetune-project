@@ -1,18 +1,12 @@
 from huggingface_hub import snapshot_download
 
+model_name = "deepseek-ai/DeepSeek-Coder-33B-instruct"   # << FIXED MODEL NAME (use this only)
+
+# Downloads entire model to /models/deepseek_coder_33b
 snapshot_download(
-    repo_id="mistralai/Mistral-7B-Instruct-v0.2",
-    revision="main",
-    local_dir="models/mistral-7b-instruct-v0.2-fp16",
-    local_dir_use_symlinks=False,
-    allow_patterns=[
-        "*.safetensors",
-        "config.json",
-        "generation_config.json",
-        "tokenizer.model",
-        "tokenizer.json",
-        "tokenizer_config.json",
-    ]
+    repo_id=model_name,
+    local_dir="./models/deepseek_coder_33b",
+    local_dir_use_symlinks=False
 )
 
-print("Full FP16 model downloaded!")
+print("Model downloaded successfully at ./models/deepseek_coder_33b")
